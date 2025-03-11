@@ -17,19 +17,21 @@ from xrayto3d_preprocess import (
 )
 
 
-BASE_PATH = "2D-3D-Reconstruction-Datasets"
-CTPELVIC1K_PATH = Path(BASE_PATH) / "ctpelvic1k"
 
-SEG_URL_PATH = "external/XrayTo3DPreprocess/workflow/ctpelvic1k/download_links/segmentation_metadata.csv"
-CLINIC_RAW_PATH = (
-    "external/XrayTo3DPreprocess/workflow/ctpelvic1k/download_links/clinic_raw.csv"
-)
-KITS_RAW_PATH = (
-    "external/XrayTo3DPreprocess/workflow/ctpelvic1k/download_links/kits_raw.csv"
-)
-COLONOG_RAW_PATH = (
-    "external/XrayTo3DPreprocess/workflow/ctpelvic1k/CTColonography_MetaData.csv"
-)
+# Get the directory where this script is located
+SCRIPT_DIR = Path(__file__).resolve().parent
+
+# Get the root of the project by going up one level from the script's directory
+PROJECT_ROOT = SCRIPT_DIR
+
+BASE_PATH = PROJECT_ROOT / "2D-3D-Reconstruction-Datasets"
+CTPELVIC1K_PATH = PROJECT_ROOT / "ctpelvic1k"
+
+# Paths inside the project
+SEG_URL_PATH = PROJECT_ROOT / "download_links/segmentation_metadata.csv"
+CLINIC_RAW_PATH = PROJECT_ROOT / "download_links/clinic_raw.csv"
+KITS_RAW_PATH = PROJECT_ROOT / "download_links/kits_raw.csv"
+COLONOG_RAW_PATH = PROJECT_ROOT / "CTColonography_MetaData.csv"
 
 
 def get_series_id(patient_id: str):
