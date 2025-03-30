@@ -6,3 +6,4 @@ external/
 wget-log
 logs/Verse2020-DRR-full.log
 logs/Verse2019-DRR-full.log
+.env

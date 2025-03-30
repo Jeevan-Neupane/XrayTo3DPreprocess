@@ -18,14 +18,20 @@ from xrayto3d_preprocess import (
 
 
 
-# Get the directory where this script is located
-SCRIPT_DIR = Path(__file__).resolve().parent
+import os
+from dotenv import load_dotenv
 
-# Get the root of the project by going up one level from the script's directory
-PROJECT_ROOT = SCRIPT_DIR
+# Load environment variables from .env file
+load_dotenv()
+
+# Access the variable
+PROJECT_ROOT = os.getenv("PROJECT_DIR")
+
+PROJECT_ROOT = Path(PROJECT_ROOT)
+print(PROJECT_ROOT)
 
 BASE_PATH = PROJECT_ROOT / "2D-3D-Reconstruction-Datasets"
-CTPELVIC1K_PATH = PROJECT_ROOT / "ctpelvic1k"
+CTPELVIC1K_PATH = BASE_PATH / "ctpelvic1k"
 
 # Paths inside the project
 SEG_URL_PATH = PROJECT_ROOT / "download_links/segmentation_metadata.csv"
